@@ -1,0 +1,88 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Victoire",
+      "lastName": "Lenglart",
+      "status": "PRESENT",
+      "gender": "WOMAN"
+    },
+    {
+      "id": 2,
+      "name": "Cynthia",
+      "lastName": "Andriamparivony",
+      "status": "PRESENT",
+      "gender": "WOMAN"
+    },
+    {
+      "id": 3,
+      "name": "Martin",
+      "lastName": "Keyling",
+      "status": "PRESENT",
+      "gender": "MAN"
+    },
+    {
+      "id": 4,
+      "name": "Romain",
+      "lastName": "Barou",
+      "status": "REMOTE",
+      "gender": "MAN"
+    },
+    {
+      "id": 5,
+      "name": "Alexiane",
+      "lastName": "Suel",
+      "status": "PRESENT",
+      "gender": "WOMAN"
+    },
+    {
+      "id": 6,
+      "name": "Ambre",
+      "lastName": "Tanke",
+      "status": "PRESENT",
+      "gender": "WOMAN"
+    },
+    {
+      "id": 7,
+      "name": "Alice",
+      "lastName": "Béharelle",
+      "status": "PRESENT",
+      "gender": "WOMAN"
+    },
+    {
+      "id": 8,
+      "name": "Patricia",
+      "lastName": "Maboudou",
+      "status": "REMOTE",
+      "gender": "WOMAN"
+    },
+    {
+      "id": 9,
+      "name": "Quentin",
+      "lastName": "Verchère",
+      "status": "ABSENT",
+      "gender": "MAN"
+    },
+    {
+      "id": 10,
+      "name": "Martin",
+      "lastName": "Dorange",
+      "status": "PRESENT",
+      "gender": "MAN"
+    },
+    {
+      "id": 11,
+      "name": "Hugo",
+      "lastName": "Gagnier",
+      "status": "PRESENT",
+      "gender": "MAN"
+    },
+    {
+      "id": 12,
+      "name": "Victor",
+      "lastName": "Lesage",
+      "status": "REMOTE",
+      "gender": "MAN"
+    }
+  ]
+}

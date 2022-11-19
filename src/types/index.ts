@@ -1,11 +1,19 @@
-export type Person = {
+export type Student = {
+  id: number;
   name: string;
   lastName: string;
-  status: Status
+  status: Status;
+  gender: Gender;
+};
+
+export enum Gender {
+  WOMAN,
+  MAN,
+  NB,
 }
 
 export enum Status {
-  PRESENT = "Présent(e)",
-  REMOTE = "Télétravail",
-  ABSENT = "Absent(e)"
+  PRESENT,
+  REMOTE,
+  ABSENT,
 }
