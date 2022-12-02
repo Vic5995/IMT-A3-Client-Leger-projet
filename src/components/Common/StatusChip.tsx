@@ -1,35 +1,23 @@
 import { Chip } from '@mui/material';
-import { Gender, Status } from '../../types';
 
 type StatusChipProps = {
-  status: Status;
-  gender: Gender;
+  status: 'PRESENT' | 'REMOTE' | 'ABSENT';
+  gender: 'WOMAN' | 'MAN' | 'NB';
 };
 
 const StatusChip = ({ status, gender }: StatusChipProps) => {
-  if (status === Status.ABSENT) {
+  if (status === 'ABSENT') {
     return (
-      <Chip
-        label={gender === Gender.WOMAN ? 'Absente' : 'Absent'}
-        color="error"
-      />
+      <Chip label={gender === 'WOMAN' ? 'Absente' : 'Absent'} color="error" />
     );
   }
 
-  if (status === Status.REMOTE) {
-    return (
-      <Chip
-        label="Télétravail"
-        color="warning"
-      />
-    );
+  if (status === 'REMOTE') {
+    return <Chip label="Télétravail" color="warning" />;
   }
 
   return (
-    <Chip
-      label={gender === Gender.WOMAN ? 'Présente' : 'Présent'}
-      color="success"
-    />
+    <Chip label={gender === 'WOMAN' ? 'Présente' : 'Présent'} color="success" />
   );
 };
 

@@ -18,14 +18,14 @@
       "id": 3,
       "name": "Martin",
       "lastName": "Keyling",
-      "status": "PRESENT",
+      "status": "ABSENT",
       "gender": "MAN"
     },
     {
       "id": 4,
       "name": "Romain",
       "lastName": "Barou",
-      "status": "REMOTE",
+      "status": "PRESENT",
       "gender": "MAN"
     },
     {
@@ -74,7 +74,7 @@
       "id": 11,
       "name": "Hugo",
       "lastName": "Gagnier",
-      "status": "PRESENT",
+      "status": "REMOTE",
       "gender": "MAN"
     },
     {

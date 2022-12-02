@@ -2,18 +2,7 @@ export type Student = {
   id: number;
   name: string;
   lastName: string;
-  status: Status;
-  gender: Gender;
+  status: "PRESENT" | "REMOTE" | "ABSENT";
+  gender: "WOMAN" | "MAN" | "NB";
 };
 
-export enum Gender {
-  WOMAN,
-  MAN,
-  NB,
-}
-
-export enum Status {
-  PRESENT,
-  REMOTE,
-  ABSENT,
-}
