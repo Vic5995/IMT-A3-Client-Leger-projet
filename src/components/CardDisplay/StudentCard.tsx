@@ -7,6 +7,7 @@ import StudentCardContentEditMode from './StudentCardContentEditMode';
 type StudentCardProps = {
   person: Student;
   isEditMode: boolean;
+  otherCardInEditMode: boolean;
   handleSelectedCard: (isEdit: boolean) => void;
 };
 
@@ -14,8 +15,8 @@ const StudentCard = ({
   person,
   handleSelectedCard,
   isEditMode,
+  otherCardInEditMode
 }: StudentCardProps) => {
-  //const [isEditMode, setIsEditMode] = useState<boolean>(false);
 
   return (
     <Card
@@ -23,14 +24,15 @@ const StudentCard = ({
         position: 'relative',
         borderRadius: '20px',
       }}
+      raised={isEditMode}
     >
       {!isEditMode ? (
         <StudentCardContent
           person={person}
           toggleEditMode={() => {
             handleSelectedCard(true);
-            //setIsEditMode(true)
           }}
+          otherCardInEditMode={otherCardInEditMode}
         />
       ) : (
         <StudentCardContentEditMode

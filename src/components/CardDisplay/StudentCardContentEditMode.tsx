@@ -90,6 +90,7 @@ const StudentCardContentEditMode = ({
         sx={{
           display: 'flex',
           flexDirection: 'column',
+          padding: '16px 16px 0px 16px',
         }}
       >
         <TextField
@@ -128,7 +129,12 @@ const StudentCardContentEditMode = ({
               ))}
         </Select>
       </CardContent>
-      <CardActions>
+      <CardActions
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+        }}
+      >
         <Button size="small" onClick={cancelModification}>
           Annuler
         </Button>

@@ -27,7 +27,7 @@ const GET_STUDENTS_URL = 'http://localhost:3000/students';
 const PUT_STUDENT_URL = (id: number) => `http://localhost:3000/students/${id}`;
 
 function App() {
-  const [displayMode, setDisplayMode] = useState<'CARD' | 'LIST'>('CARD');
+  const [displayMode, setDisplayMode] = useState<'CARD' | 'LIST'>('LIST');
   const [studentsToDisplay, setStudentsToDisplay] = useState<Student[]>([]);
 
   const { loading, data } = useFetchStudent(GET_STUDENTS_URL);
@@ -91,16 +91,18 @@ function App() {
       </ToggleButtonGroup>
 
       <Box
-        m={2}
         sx={{
           flexGrow: 2,
+          margin: '16px 10%',
         }}
       >
         <UserActionContext.Provider value={{ saveModifications }}>
           {displayMode === 'CARD' && (
             <StudentCardList studentList={studentsToDisplay} />
           )}
-          {displayMode === 'LIST' && <StudentLineList />}
+          {displayMode === 'LIST' && (
+            <StudentLineList studentList={studentsToDisplay} />
+          )}
         </UserActionContext.Provider>
       </Box>
 

@@ -1,6 +1,7 @@
-import { Grid } from '@mui/material';
+import { ClickAwayListener, Grid } from '@mui/material';
 import { useState } from 'react';
 import { Student } from '../../types';
+import ModificationAlertDialog from '../Common/ModificationAlertDialog';
 import PersonCard from './StudentCard';
 
 type StudentCardListProps = {
@@ -9,7 +10,8 @@ type StudentCardListProps = {
 
 const StudentCardList = ({ studentList }: StudentCardListProps) => {
   const [selectedCard, setSelectedCard] = useState<number>(-1);
-  const [openModifAlertDialog, setOpenModifAlertDialog] = useState<boolean>(false);
+  const [openModifAlertDialog, setOpenModifAlertDialog] =
+    useState<boolean>(false);
 
   // TODO:
   // 1 - créer token
@@ -20,24 +22,42 @@ const StudentCardList = ({ studentList }: StudentCardListProps) => {
   const handleSelectedCard = (index: number) => {
     if (selectedCard !== -1 && index !== -1) {
       setOpenModifAlertDialog(true);
+    } else {
+      setSelectedCard(index);
     }
-    setSelectedCard(index);
+  };
+
+  const handleDialogCancel = () => {
+    setOpenModifAlertDialog(false);
+  };
+
+  const handleDialogSave = () => {
+    setOpenModifAlertDialog(true);
   };
 
   return (
-    <Grid container spacing={2}>
-      {studentList.map((el) => (
-        <Grid item key={el.id} xs={6} sm={4} md={3}>
-          <PersonCard
-            person={el}
-            handleSelectedCard={(isEdit: boolean) => {
-              isEdit ? handleSelectedCard(el.id) : handleSelectedCard(-1);
-            }}
-            isEditMode={el.id === selectedCard}
-          />
-        </Grid>
-      ))}
-    </Grid>
+    <>
+      <ModificationAlertDialog
+        open={openModifAlertDialog}
+        setOpen={setOpenModifAlertDialog}
+        handleCancel={handleDialogCancel}
+        handleSave={handleDialogSave}
+      />
+      <Grid container spacing={2} alignItems="center">
+        {studentList.map((el) => (
+          <Grid item key={el.id} xs={6} sm={4} md={3}>
+            <PersonCard
+              person={el}
+              handleSelectedCard={(isEdit: boolean) => {
+                isEdit ? handleSelectedCard(el.id) : handleSelectedCard(-1);
+              }}
+              otherCardInEditMode={selectedCard !== -1}
+              isEditMode={el.id === selectedCard}
+            />
+          </Grid>
+        ))}
+      </Grid>
+    </>
   );
 };
 

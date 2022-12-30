@@ -9,29 +9,26 @@ import DialogTitle from '@mui/material/DialogTitle';
 type ModificationAlertDialogProps = {
   open: boolean;
   setOpen: (open: boolean) => void;
+  handleCancel: () => void;
+  handleSave: () => void;
 };
 
 const ModificationAlertDialog = ({
   open,
   setOpen,
+  handleCancel,
+  handleSave
 }: ModificationAlertDialogProps) => {
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   return (
     <Dialog
       open={open}
-      onClose={handleClose}
+      onClose={() => setOpen(false)}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
       <DialogTitle id="alert-dialog-title">
-        {"Use Google's location service?"}
+        {"Modifications en cours"}
       </DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
@@ -39,8 +36,8 @@ const ModificationAlertDialog = ({
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>Annuler</Button>
-        <Button onClick={handleClose} autoFocus>
+        <Button onClick={handleCancel}>Annuler</Button>
+        <Button onClick={handleSave} autoFocus>
           Sauvegarder
         </Button>
       </DialogActions>
