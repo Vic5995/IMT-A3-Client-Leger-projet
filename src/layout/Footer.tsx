@@ -20,7 +20,7 @@ const Footer = () => {
       <Typography
         textAlign="center"
       >
-        Victoire Lenglart FIL A3
+        Victoire Schubert FIL A3
       </Typography>
     </Box>
   );

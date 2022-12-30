@@ -19,7 +19,7 @@ const Header = () => {
       >
         Auto-présence
       </Typography>
-      <HelpOutlineIcon />
+      {/* <HelpOutlineIcon /> */}
     </Box>
   );
 };

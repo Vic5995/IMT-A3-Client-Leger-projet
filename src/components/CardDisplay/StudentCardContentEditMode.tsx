@@ -5,6 +5,7 @@ import {
   TextField,
   MenuItem,
   Select,
+  Typography,
 } from '@mui/material';
 import { useContext, useState } from 'react';
 import UserActionContext from '../../context/UserActionContext';
@@ -90,25 +91,16 @@ const StudentCardContentEditMode = ({
         sx={{
           display: 'flex',
           flexDirection: 'column',
+          alignItems: 'center',
           padding: '16px 16px 0px 16px',
+          gap: 1
+          
         }}
       >
-        <TextField
-          label="Prénom"
-          value={name}
-          size="small"
-          margin="dense"
-          onChange={(event) => setName(event.target.value)}
-          required
-        />
-        <TextField
-          label="Nom"
-          value={lastName}
-          size="small"
-          margin="dense"
-          onChange={(event) => setLastName(event.target.value)}
-          required
-        />
+        <Typography>{person.name}</Typography>
+        <Typography sx={{ textTransform: 'uppercase' }}>
+          {person.lastName}
+        </Typography>
         <Select
           label="Status"
           value={status}

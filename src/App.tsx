@@ -1,9 +1,6 @@
 import {
   Container,
   Box,
-  ToggleButtonGroup,
-  ToggleButton,
-  ThemeProvider,
   CircularProgress,
   Backdrop,
 } from '@mui/material';
@@ -13,11 +10,7 @@ import StudentCardList from './components/CardDisplay/StudentCardList';
 import Footer from './layout/Footer';
 import Header from './layout/Header';
 
-import lightTheme from './theme/theme';
 
-import ViewModuleIcon from '@mui/icons-material/ViewModule';
-import ViewListIcon from '@mui/icons-material/ViewList';
-import StudentLineList from './components/ListDisplay/StudentLineList';
 import { Student } from './types';
 import useFetchStudent from './hooks/useFetchStudent';
 
@@ -27,7 +20,6 @@ const GET_STUDENTS_URL = 'http://localhost:3000/students';
 const PUT_STUDENT_URL = (id: number) => `http://localhost:3000/students/${id}`;
 
 function App() {
-  const [displayMode, setDisplayMode] = useState<'CARD' | 'LIST'>('LIST');
   const [studentsToDisplay, setStudentsToDisplay] = useState<Student[]>([]);
 
   const { loading, data } = useFetchStudent(GET_STUDENTS_URL);
@@ -53,7 +45,6 @@ function App() {
   };
 
   return (
-    // <ThemeProvider theme={lightTheme} >
     <Container
       disableGutters
       maxWidth={false}
@@ -73,23 +64,6 @@ function App() {
 
       <Header />
 
-      <ToggleButtonGroup
-        value={displayMode}
-        exclusive
-        onChange={(_, mode: 'CARD' | 'LIST') => setDisplayMode(mode)}
-        aria-label="display mode"
-        sx={{
-          margin: 'auto',
-        }}
-      >
-        <ToggleButton value="LIST" aria-label="list view">
-          <ViewListIcon />
-        </ToggleButton>
-        <ToggleButton value="CARD" aria-label="card view">
-          <ViewModuleIcon />
-        </ToggleButton>
-      </ToggleButtonGroup>
-
       <Box
         sx={{
           flexGrow: 2,
@@ -97,18 +71,12 @@ function App() {
         }}
       >
         <UserActionContext.Provider value={{ saveModifications }}>
-          {displayMode === 'CARD' && (
-            <StudentCardList studentList={studentsToDisplay} />
-          )}
-          {displayMode === 'LIST' && (
-            <StudentLineList studentList={studentsToDisplay} />
-          )}
+          <StudentCardList studentList={studentsToDisplay} />
         </UserActionContext.Provider>
       </Box>
 
       <Footer />
     </Container>
-    // </ThemeProvider>
   );
 }
 
